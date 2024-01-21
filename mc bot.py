@@ -15,14 +15,16 @@ def generate_random_username():
 
 
 class MCClient:
-    def __init__(self, host, port):
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect((host, port))
-        self.socket.setblocking(False)
-        self.recv_thread = threading.Thread(target=self.recv_data)
-        self.recv_thread.start()
-        self.send_handshake_and_login()
-
+    try:
+        def __init__(self, host, port):
+            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.socket.connect((host, port))
+            self.socket.setblocking(False)
+            self.recv_thread = threading.Thread(target=self.recv_data)
+            self.recv_thread.start()
+            self.send_handshake_and_login()
+    except:
+        pass
     def recv_data(self):
         while True:
             try:
