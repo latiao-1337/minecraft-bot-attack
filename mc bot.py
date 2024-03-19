@@ -6,8 +6,8 @@ import string
 
 
 def generate_random_username():
-    min_length = 1
-    max_length = 16
+    min_length = 4
+    max_length = 8
     length = random.randint(min_length, max_length)
     charset = string.ascii_letters + string.digits
     username = "".join(random.choices(charset, k=length))
